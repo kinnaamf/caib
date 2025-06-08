@@ -159,6 +159,7 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
+      brandOrange: '#F66418'
     }),
     columns: {
       auto: 'auto',
