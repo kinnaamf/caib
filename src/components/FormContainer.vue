@@ -14,7 +14,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import TheForm from "@/components/TheForm.vue";
 import top from "@/assets/docs-images/top-document.png"

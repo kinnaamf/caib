@@ -13,7 +13,7 @@
 
     <p
         class="transition-all duration-500 whitespace-nowrap font-semibold"
-        :class="toShow ? 'opacity-100 max-w-[200px]' : 'opacity-0 max-w-0'"
+        :class="toShow ? 'ml-2 pr-2 opacity-100 max-w-[200px]' : 'opacity-0 max-w-0'"
     >
       <slot></slot>
     </p>

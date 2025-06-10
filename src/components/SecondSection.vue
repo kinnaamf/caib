@@ -10,8 +10,8 @@
           <span class="text-brandOrange">Ina<br>Bostan</span>
         </h1>
 
-        <div class="self-center my-4">
-          <next-section-button class="button h-max w-max z-10 relative">De ce noi?</next-section-button>
+        <div class="self-center relative -bottom-[140px]">
+          <next-section-button class="button h-max w-max z-50 absolute hover:mr-4">{{ buttonText }}</next-section-button>
         </div>
 
         <img :src="simpleDocument" alt="" class="absolute -top-52 -right-[132px] scale-125"/>
@@ -43,6 +43,7 @@ export default {
     return {
       simpleDocument,
       certificate,
+      buttonText: "De ce noi?",
       aboutCards: [
         {
           title: "Despre noi",

@@ -1,14 +1,14 @@
 <template>
   <div>
-    <HeroSection :video-src="background">
+    <hero-section :video-src="background">
       <template #content>
         <the-header class="mt-[16px]"></the-header>
-        <div class="px-[260px] pt-[45px] flex flex-col gap-[40px]">
+        <div class="pt-[45px] flex flex-col gap-[40px]">
           <form-container></form-container>
-          <next-section-button class="w-max self-center">Despre</next-section-button>
+          <next-section-button class="w-max self-center">{{ buttonText }}</next-section-button>
         </div>
       </template>
-    </HeroSection>
+    </hero-section>
   </div>
 </template>
 
@@ -23,7 +23,8 @@ export default {
   components: { NextSectionButton, FormContainer, TheHeader, HeroSection },
   data() {
     return {
-      background
+      background,
+      buttonText: "Despre"
     }
   }
 }

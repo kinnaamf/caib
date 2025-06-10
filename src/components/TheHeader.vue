@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <div class="flex justify-between items-center px-[260px]">
+    <div class="flex justify-between items-center">
       <the-logo></the-logo>
       <div
           class="group inline-block cursor-pointer"
