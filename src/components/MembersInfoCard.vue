@@ -4,7 +4,7 @@
       <h1 class="card-title">{{ title }}</h1>
       <p class="card-text">{{ teamInfo }}</p>
     </div>
-    <next-section-button class="relative top-36">{{ buttonText }}</next-section-button>
+    <next-section-button class="relative top-32">{{ buttonText }}</next-section-button>
   </div>
 </template>
 

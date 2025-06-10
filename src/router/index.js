@@ -17,4 +17,9 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title || 'Cabinetul Avocatului Ina Bostan'
+  next()
+})
+
 export default router

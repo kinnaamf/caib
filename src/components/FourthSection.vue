@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-[#EEE] w-screen min-h-screen relative background flex items-center justify-center">
+  <div class="bg-[#EEE] w-screen min-h-screen relative background flex items-center justify-center px-[260px]">
     <the-ellipse size="350px" class="absolute top-0 left-0 -z-10"/>
     <the-ellipse size="290px" class="absolute bottom-0 right-0 -z-10"/>
 
-      <div class="px-[160px] flex gap-8">
+      <div class="flex gap-8">
         <member-card
             v-for="(memberData , index) in membersData"
             :info-text="memberData.memberInfo"
