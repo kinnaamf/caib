@@ -1,10 +1,11 @@
 <template>
   <button
       class="inline-flex items-center justify-center
-           bg-white/60 rounded-full p-2
+           bg-transparent rounded-full p-2
            border-2 border-[#F66418]
            cursor-pointer transition-all duration-500
-           overflow-hidden"
+           overflow-hidden
+         "
       @mouseenter="toShow = true"
       @mouseleave="toShow = false"
   >

@@ -1,5 +1,5 @@
 <template>
-  <section class="relative w-full h-screen overflow-hidden">
+  <section class="relative w-full h-screen overflow-hidden ">
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
       <video
           :src="videoSrc"

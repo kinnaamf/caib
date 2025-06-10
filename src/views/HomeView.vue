@@ -1,6 +1,7 @@
 <template>
   <div>
-    <first-section></first-section>
+    <first-section class="relative z-10"></first-section>
+    <second-section></second-section>
   </div>
 </template>
 
@@ -8,9 +9,10 @@
 import TheLogo from "@/components/TheLogo.vue";
 import TheHeader from "@/components/TheHeader.vue";
 import FirstSection from "@/components/FirstSection.vue";
+import SecondSection from "@/components/SecondSection.vue";
 
 export default {
-  components: { FirstSection, TheHeader, TheLogo }
+  components: { SecondSection, FirstSection, TheHeader, TheLogo }
 
 }
 </script>
