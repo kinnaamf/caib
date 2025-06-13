@@ -11,7 +11,7 @@
         </h1>
 
         <div class="self-center relative -bottom-[140px]">
-          <next-section-button class="button h-max w-max z-50 absolute hover:mr-4">{{ buttonText }}</next-section-button>
+          <next-section-button class="button h-max w-max z-50 absolute hover:-translate-x-8">{{ buttonText }}</next-section-button>
         </div>
 
         <img :src="simpleDocument" alt="" class="absolute -top-52 -right-[132px] scale-125"/>

@@ -1,5 +1,5 @@
 <template>
-  <div class="mini-card flex flex-col items-center justify-center">
+  <div class="mini-card flex flex-col items-center justify-center ">
     <h2 class="title">
       {{ title }}
     </h2>
@@ -40,6 +40,7 @@ export default {
   line-height: normal;
 }
 .mini-card {
+  box-sizing: border-box;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.50);
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.10);
@@ -51,7 +52,7 @@ export default {
 .mini-card:hover {
   transform: scale(1.05);
   transition: 0.2s;
-  border: 2px solid #F66418;
+  outline: 2px solid #F66418;
   background: rgba(255, 255, 255, 0.80);
   box-shadow: 0 4px 30px 0 #F66418 inset, 0 2px 20px 0 rgba(0, 0, 0, 0.10);
 }

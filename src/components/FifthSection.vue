@@ -3,12 +3,12 @@
     <hero-section :video-src="background">
       <template #content>
         <div>
-          <div class="flex gap-8">
+          <div class="flex gap-8 items-stretch">
             <div class="flex flex-col gap-8">
               <contacts-card></contacts-card>
               <schedule-card></schedule-card>
             </div>
-            <div>
+            <div class="flex-1 relative">
               <map-iframe></map-iframe>
             </div>
           </div>
