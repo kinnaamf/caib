@@ -3,19 +3,19 @@
     <span class="text-[30px] font-bold">Programeaza-te acum!</span>
 
     <div class="flex flex-col gap-[50px]">
-      <input
+      <form-input
           type="text"
           name="name"
           id="name"
           placeholder="Nume prenume"
           v-model="name"/>
-      <input
+      <form-input
           type="text"
           name="number"
           id="number"
           placeholder="Numar de telefon"
           v-model="number"/>
-      <input
+      <form-input
           type="text"
           name="email"
           id="email"
@@ -26,8 +26,11 @@
   </form>
 </template>
 <script>
+import FormInput from "@/components/FormInput.vue";
+
 export default {
   name: "TheForm",
+  components: { FormInput },
   data() {
     return {
       name: null,
@@ -39,17 +42,5 @@ export default {
 }
 </script>
 <style scoped>
-input[type="text"] {
-  border-bottom: 1px solid black;
-  background: none;
-  color: black;
-  font-size: 24px;
-  font-weight: 300;
-  outline: none;
-  padding-left: 8px;
-}
 
-input[type="text"]::placeholder {
-  color: rgba(0, 0, 0, 0.5);
-}
 </style>
