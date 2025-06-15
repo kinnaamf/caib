@@ -21,7 +21,7 @@
         <button
             class="btn"
             :class="selectedIndex === idx ? 'selected-button' : 'not-selected-button'"
-            @click="selectedIndex = idx; $emit('time-selected', appointmentTime[idx])"
+            @click="isTimeSelected = true; selectedIndex = idx; $emit('time-selected', appointmentTime[idx]);"
         >
           <p>
             <span>{{ appointment.from }}</span>
@@ -51,6 +51,13 @@
 
 <script>
 export default {
+  props: {
+    selectedDate: {
+      type: String,
+      required: false,
+      default: '',
+    }
+  },
   data() {
     return {
       title: 'Alege ora!',
@@ -63,23 +70,34 @@ export default {
       selectedIndex: null,
       buttonText: 'continue',
       errorMessage: '',
+      isTimeSelected: false,
       showToast: false,
+    }
+  },
+  computed: {
+    isDateSelected() {
+      if (this.selectedDate) {
+        return true
+      }
+    },
+    isSelected() {
+      if (this.isDateSelected && this.isTimeSelected) {
+        return true
+      }
     }
   },
   methods: {
     handleClick(event) {
-
       if(event.target.classList.contains('not-selected')) {
         this.showToast = true;
-        this.errorMessage = 'Alegeti ora pentru programare!';
-      } else this.$emit('next-step')
-
-
-    }
-  }
+        this.errorMessage = 'Alegeti data si ora programarii!';
+      } else if(this.isDateSelected && this.isTimeSelected) {
+        this.$emit('next-step')
+      }
+    },
+  },
 }
 </script>
-
 
 <style scoped>
 .container {

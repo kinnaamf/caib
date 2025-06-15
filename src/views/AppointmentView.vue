@@ -6,7 +6,10 @@
     </div>
 
     <div class="2xl:h-[800px] 2xl:w-[1400px] bg-white rounded-2xl px-[100px] flex w-full relative overflow-hidden">
-      <calendar-panel class="w-1/2 border-r border-black/40 pr-[90px] py-[57.5px] z-10"></calendar-panel>
+      <calendar-panel
+          class="w-1/2 border-r border-black/40 pr-[90px] py-[57.5px] z-10"
+          @date-selected="handledDateSelected"
+      ></calendar-panel>
 
       <div class="w-1/2 relative">
         <transition name="fade-slide" mode="out-in">
@@ -16,6 +19,7 @@
               class="absolute top-0 left-0 w-full h-full py-[57.5px]"
               @next-step="showForm = true"
               @time-selected="onTimeSelected"
+              :selected-date="selectedDate"
           />
         </transition>
 
@@ -25,6 +29,7 @@
               key="form"
               class="absolute top-0 left-0 w-full h-full py-[57.5px]"
               :selected-time="selectedTime"
+              :selected-date="selectedDate"
           />
         </transition>
       </div>
@@ -47,12 +52,16 @@ export default {
       arrow,
       backText: 'Inapoi',
       showForm: false,
-      selectedTime: null
+      selectedTime: null,
+      selectedDate: null
     }
   },
   methods: {
     onTimeSelected(time) {
       this.selectedTime = time;
+    },
+    handledDateSelected(date) {
+      this.selectedDate = date;
     }
   }
 }

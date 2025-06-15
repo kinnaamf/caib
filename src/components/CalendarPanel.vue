@@ -30,9 +30,9 @@
           :key="index"
           class="aspect-square w-[70px] flex items-center justify-center border rounded-2xl text-[24px] font-semibold transition-all hover:bg-black/10"
           :class="getDayClass(day)"
-          @click="selectDay(day)"
+          @click="selectDay(day);"
       >
-        {{ day?.day || '' }}
+        {{ day?.day  || '' }}
       </button>
     </div>
 
@@ -60,14 +60,14 @@
 import arrow from '@/assets/arrowCalendar.svg'
 
 export default {
-  name: 'DateSelector',
+  name: 'CalendarPanel',
   data() {
     const today = new Date()
     return {
       daysOfWeek: ['Lu', 'Ma', 'Mi', 'Jo', 'Vi', 'Sa', 'Du'],
       currentMonth: today.getMonth(),
       currentYear: today.getFullYear(),
-      selectedDate: null,
+      selectedDate: '',
       availability: {
         4: 'partial',
         10: 'full',
@@ -123,6 +123,10 @@ export default {
       if (weekday === 0 || weekday === 6) return
 
       this.selectedDate = new Date(this.currentYear, this.currentMonth, dayObj.day)
+
+      // console.log(this.selectedDate.toLocaleDateString("ro-RO"))
+
+      this.$emit('date-selected', this.selectedDate.toLocaleDateString("ro-RO"))
     },
     getDayClass(dayObj) {
       if (!dayObj || !dayObj.day) {
