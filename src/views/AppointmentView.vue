@@ -15,6 +15,7 @@
               key="time"
               class="absolute top-0 left-0 w-full h-full py-[57.5px]"
               @next-step="showForm = true"
+              @time-selected="onTimeSelected"
           />
         </transition>
 
@@ -23,6 +24,7 @@
               v-if="showForm"
               key="form"
               class="absolute top-0 left-0 w-full h-full py-[57.5px]"
+              :selected-time="selectedTime"
           />
         </transition>
       </div>
@@ -45,6 +47,12 @@ export default {
       arrow,
       backText: 'Inapoi',
       showForm: false,
+      selectedTime: null
+    }
+  },
+  methods: {
+    onTimeSelected(time) {
+      this.selectedTime = time;
     }
   }
 }

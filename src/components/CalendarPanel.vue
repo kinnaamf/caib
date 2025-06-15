@@ -41,13 +41,16 @@
     <!-- Legend -->
     <div class="mt-6 flex items-center gap-9 text-sm text-black/80 font-normal">
       <div class="flex items-center gap-3">
-        <div class="legend-square"></div><span>Liber</span>
+        <div class="legend-square"></div>
+        <span>Liber</span>
       </div>
       <div class="flex items-center gap-3">
-        <div class="legend-square bg-brandOrange/50 border-black"></div><span>Parțial ocupat</span>
+        <div class="legend-square bg-brandOrange/50 border-black"></div>
+        <span>Parțial ocupat</span>
       </div>
       <div class="flex items-center gap-3">
-        <div class="legend-square bg-brandOrange border-black"></div><span>Ocupat</span>
+        <div class="legend-square bg-brandOrange border-black"></div>
+        <span>Ocupat</span>
       </div>
     </div>
   </div>
@@ -120,21 +123,23 @@ export default {
       if (weekday === 0 || weekday === 6) return
 
       this.selectedDate = new Date(this.currentYear, this.currentMonth, dayObj.day)
-    }
-    ,
+    },
     getDayClass(dayObj) {
-      if (!dayObj) return ''
-      const status = this.availability[dayObj.day]
-      const thisDate = new Date(this.currentYear, this.currentMonth, dayObj.day)
-      const weekday = thisDate.getDay()
+      if (!dayObj || !dayObj.day) {
+        return 'border-none hover:bg-transparent pointer-events-none';
+      }
 
-      const isWeekend = weekday === 0 || weekday === 6
+      const status = this.availability[dayObj.day];
+      const thisDate = new Date(this.currentYear, this.currentMonth, dayObj.day);
+      const weekday = thisDate.getDay();
+
+      const isWeekend = weekday === 0 || weekday === 6;
 
       const isSelected =
           this.selectedDate &&
           this.selectedDate.getDate() === dayObj.day &&
           this.selectedDate.getMonth() === this.currentMonth &&
-          this.selectedDate.getFullYear() === this.currentYear
+          this.selectedDate.getFullYear() === this.currentYear;
 
       return {
         'bg-white border': !status && !this.isPast(dayObj),
@@ -143,10 +148,9 @@ export default {
         'border border-orange-400': status === 'free',
         'opacity-40 pointer-events-none': this.isPast(dayObj),
         'ring-1 ring-black bg-black/10 transition-300 transition-all': isSelected,
-        'cursor-pointer  hover:opacity-80': !this.isPast(dayObj),
-
-        'pointer-events-none opacity-40': isWeekend && !this.isPast(dayObj),
-      }
+        'cursor-pointer hover:opacity-80': !this.isPast(dayObj),
+        'pointer-events-none opacity-40': isWeekend && !this.isPast(dayObj)
+      };
     }
 
   }
