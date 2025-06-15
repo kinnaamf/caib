@@ -3,8 +3,7 @@ import App from './App.vue'
 import './assets/tailwind.css'
 import router from './router'
 import vueScrollTo from 'vue-scrollto'
-
-
+import VueMask from 'vue-the-mask'
 
 createApp(App)
   .use(router)
@@ -15,4 +14,5 @@ createApp(App)
   force: true,
   cancelOnUserScroll: true,
   })
+  .use(VueMask)
   .mount('#app')

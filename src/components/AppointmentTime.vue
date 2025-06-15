@@ -7,6 +7,12 @@
         class="overflow-y-auto"
         style="height: 234px;"
     >
+      <transition name="toast-fade">
+        <div v-if="showToast"
+             class="fixed top-6 right-6 bg-red-500 text-white px-6 py-4 rounded-xl shadow-lg z-50 max-w-md">
+          <p>{{ errorMessage }}</p>
+        </div>
+      </transition>
       <div
           v-for="(appointment, idx) in appointmentTime"
           :key="idx"
@@ -15,7 +21,7 @@
         <button
             class="btn"
             :class="selectedIndex === idx ? 'selected-button' : 'not-selected-button'"
-            @click="selectedIndex = idx"
+            @click="selectedIndex = idx; $emit('time-selected', appointmentTime[idx])"
         >
           <p>
             <span>{{ appointment.from }}</span>
@@ -29,9 +35,10 @@
     </div>
     <div>
       <button
-          @click="$emit('next-step')"
-          class="submit-button">
-        To form
+          @click="handleClick"
+          :class="!isSelected ? 'not-selected' : 'is-selected'"
+      >
+        {{ buttonText }}
       </button>
     </div>
     <div>
@@ -53,7 +60,21 @@ export default {
         { from: '15:00', to: '17:00' },
         { from: '17:00', to: '19:00' }
       ],
-      selectedIndex: null
+      selectedIndex: null,
+      buttonText: 'continue',
+      errorMessage: '',
+      showToast: false,
+    }
+  },
+  methods: {
+    handleClick(event) {
+
+      if(event.target.classList.contains('not-selected')) {
+        this.showToast = true;
+        this.errorMessage = 'Alegeti ora pentru programare!';
+      } else this.$emit('next-step')
+
+
     }
   }
 }
@@ -89,12 +110,16 @@ export default {
   background-color: rgba(0, 0, 0, 0.06);
 }
 
-.submit-button {
-  @apply bg-brandOrange/80 hover:bg-brandOrange/85 transition w-[445px] h-[70px] font-semibold text-[32px] rounded-2xl mt-[10px] text-white;
-}
-
 .info {
   @apply text-black/60 font-normal pointer-events-none;
+}
+
+.is-selected {
+  @apply bg-brandOrange/80 hover:bg-brandOrange/85 transition w-[445px] h-[70px] font-semibold text-[32px] rounded-2xl mt-[10px] text-white
+}
+
+.not-selected {
+  @apply text-white bg-brandOrange/40 hover:bg-brandOrange/85 transition w-[445px] h-[70px] font-semibold text-[32px] rounded-2xl mt-[10px] text-white;
 }
 
 .selected-background {
