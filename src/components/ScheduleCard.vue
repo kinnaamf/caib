@@ -6,7 +6,7 @@
           v-for="(day, index) in schedule"
           :key="day"
       >
-        <div class="flex text-[24px] font-medium justify-between gap-10">
+        <div class="flex text-[24px] font-medium justify-between gap-10 text-nowrap">
           <h3 :class="{ 'text-brandOrange' : day.workingDay }">{{ day.day }}</h3>
           <h3>{{ day.workingDay ? 'Liber' : '9.00 - 18.00' }}</h3>
         </div>
