@@ -11,7 +11,10 @@
         </h1>
 
         <div class="self-center relative -bottom-[140px]">
-          <next-section-button class="button h-max w-max z-50 absolute hover:-translate-x-8">{{ buttonText }}</next-section-button>
+          <next-section-button
+              class="button h-max w-max z-50 absolute hover:-translate-x-8"
+              @scroll-to-next="handleScrollRequest('third-section')"
+          >{{ buttonText }}</next-section-button>
         </div>
 
         <img :src="simpleDocument" alt="" class="absolute -top-52 -right-[132px] scale-125"/>
@@ -36,9 +39,17 @@ import AboutCard from "@/components/AboutCard.vue";
 import NextSectionButton from "@/components/NextSectionButton.vue";
 import simpleDocument from "@/assets/docs-images/simpleSecondSection.png"
 import certificate from "@/assets/docs-images/certificate.png"
+import { useScrollHandler } from "@/composables/useScrollHandler";
 
 export default {
   components: { NextSectionButton, AboutCard, TheEllipse },
+  setup() {
+    const { handleScrollRequest } = useScrollHandler();
+
+    return {
+      handleScrollRequest,
+    }
+  },
   data() {
     return {
       simpleDocument,

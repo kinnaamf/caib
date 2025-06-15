@@ -8,6 +8,7 @@
          "
       @mouseenter="toShow = true"
       @mouseleave="toShow = false"
+      @click="handleClick"
   >
     <img :src="arrow" alt="" class="w-8 shrink-0" />
 
@@ -23,10 +24,19 @@
 <script>
 import arrow from "@/assets/arrow.svg"
 export default {
+  name: "NextSectionButton",
   data() {
     return {
       arrow,
       toShow: false
+    }
+  },
+  props: {
+
+  },
+  methods: {
+    handleClick() {
+      this.$emit("scroll-to-next");
     }
   }
 }

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <first-section class="relative z-10"></first-section>
-    <second-section></second-section>
-    <third-section class="relative z-10"></third-section>
-    <fourth-section></fourth-section>
-    <fifth-section class="relative z-10"></fifth-section>
-    <the-footer></the-footer>
+    <first-section id="first-section" class="relative z-10" @request-scroll="scrollToSection"></first-section>
+    <second-section id="second-section" @request-scroll="scrollToSection"></second-section>
+    <third-section id="third-section" class="relative z-10" @request-scroll="scrollToSection"></third-section>
+    <fourth-section id="fourth-section" @request-scroll="scrollToSection"></fourth-section>
+    <fifth-section id="fifth-section" class="relative z-10" @request-scroll="scrollToSection"></fifth-section>
+    <the-footer id="footer" @request-scroll-to-top="scrollToSection('first-section')"></the-footer>
   </div>
 </template>
 
@@ -20,8 +20,15 @@ import FifthSection from "@/components/FifthSection.vue";
 import TheFooter from "@/components/TheFooter.vue";
 
 export default {
-  components: { TheFooter, FourthSection, ThirdSection, SecondSection, FirstSection, TheHeader, TheLogo, FifthSection }
-
+  components: { TheFooter, FourthSection, ThirdSection, SecondSection, FirstSection, TheHeader, TheLogo, FifthSection },
+  methods: {
+    scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        this.$scrollTo(el);
+      } else console.warn('no element found')
+    }
+  }
 }
 </script>
 

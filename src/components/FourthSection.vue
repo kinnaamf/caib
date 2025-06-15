@@ -10,7 +10,7 @@
             :member-name="memberData.memberName"
             :image="memberData.memberPhoto"
         ></member-card>
-        <members-info-card :title="cardTitle" :team-info="cardText"></members-info-card>
+        <members-info-card :title="cardTitle" :team-info="cardText" @request-scroll="$emit('request-scroll', $event)"></members-info-card>
       </div>
 
   </div>

@@ -1,8 +1,10 @@
 <template>
-  <button>
+  <button
+  @click="$emit('scroll-to-top')"
+  >
     <span class="flex px-4 py-2 gap-2">
       <img :src="arrow" alt="">
-      <span class="text-xl font-semibold">Inapoi</span>
+      <span class="text-xl font-semibold">{{ buttonText }}</span>
     </span>
   </button>
 </template>
@@ -14,10 +16,11 @@
     name: 'ScrollUpButton',
     data() {
       return {
-        buttonText: '',
+        buttonText: 'Inapoi',
         arrow
       }
-    }
+    },
+    emits: ['scroll-to-top'],
   }
 </script>
 

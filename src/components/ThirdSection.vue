@@ -8,7 +8,9 @@
                 class="w-2/3 card flex flex-col gap-[40px] pt-[130px] pb-[80px] px-[120px]">
               <why-card-text :title="title" :text="text"></why-card-text>
               <div class="self-center mt-auto">
-                <next-section-button>Echipa noastra</next-section-button>
+                <next-section-button
+                    @scroll-to-next="handleScrollRequest('fourth-section')"
+                >Echipa noastra</next-section-button>
               </div>
             </div>
 
@@ -35,9 +37,17 @@ import background from "@/assets/background2.mp4";
 import WhyCardText from "@/components/WhyCardText.vue";
 import NextSectionButton from "@/components/NextSectionButton.vue";
 import WhyMiniCard from "@/components/WhyMiniCard.vue";
+import { useScrollHandler } from "@/composables/useScrollHandler";
 
 export default {
   components: { WhyMiniCard, NextSectionButton, WhyCardText, HeroSection },
+  setup() {
+    const { handleScrollRequest } = useScrollHandler();
+
+    return {
+      handleScrollRequest,
+    }
+  },
   data() {
     return {
       background,

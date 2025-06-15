@@ -5,7 +5,10 @@
       <p class="card-text">{{ teamInfo }}</p>
     </div>
 
-    <next-section-button class="mb-6 self-center">
+    <next-section-button
+        class="mb-6 self-center"
+        @scroll-to-next="handleScrollRequest('fifth-section')"
+    >
       {{ buttonText }}
     </next-section-button>
   </div>
@@ -13,6 +16,7 @@
 
 <script>
 import NextSectionButton from "@/components/NextSectionButton.vue";
+import { useScrollHandler } from "@/composables/useScrollHandler";
 
 export default {
   components: { NextSectionButton },
@@ -30,6 +34,13 @@ export default {
     return {
       buttonText: "Contacte"
     }
+  },
+  setup() {
+    const { handleScrollRequest } = useScrollHandler();
+
+    return {
+      handleScrollRequest,
+    };
   }
 }
 </script>
