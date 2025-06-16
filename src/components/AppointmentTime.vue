@@ -39,7 +39,7 @@
 export default {
   name: 'AppointmentTime',
   props: {
-    selectedDate: String,
+    selectedDate: Date,
     selectedIndex: Number,
   },
   data() {

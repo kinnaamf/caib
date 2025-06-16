@@ -67,7 +67,7 @@ export default {
       daysOfWeek: ['Lu', 'Ma', 'Mi', 'Jo', 'Vi', 'Sa', 'Du'],
       currentMonth: today.getMonth(),
       currentYear: today.getFullYear(),
-      selectedDate: '',
+      selectedDate: null,
       availability: {
         4: 'partial',
         10: 'full',
