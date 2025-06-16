@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <first-section id="first-section" class="relative z-10" @request-scroll="scrollToSection"></first-section>
-    <second-section id="second-section" @request-scroll="scrollToSection"></second-section>
-    <third-section id="third-section" class="relative z-10" @request-scroll="scrollToSection"></third-section>
-    <fourth-section id="fourth-section" @request-scroll="scrollToSection"></fourth-section>
-    <fifth-section id="fifth-section" class="relative z-10" @request-scroll="scrollToSection"></fifth-section>
+  <div class="min">
+    <first-section id="first-section" class="relative z-10 min-h-screen" @request-scroll="scrollToSection"></first-section>
+    <second-section id="second-section" class="min-h-screen" @request-scroll="scrollToSection"></second-section>
+    <third-section id="third-section" class="relative z-10 min-h-screen" @request-scroll="scrollToSection"></third-section>
+    <fourth-section id="fourth-section" class="min-h-screen" @request-scroll="scrollToSection"></fourth-section>
+    <fifth-section id="fifth-section" class="relative z-10 min-h-screen" @request-scroll="scrollToSection"></fifth-section>
     <the-footer id="footer" @request-scroll-to-top="scrollToSection('first-section')"></the-footer>
   </div>
 </template>

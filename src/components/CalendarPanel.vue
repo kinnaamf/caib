@@ -32,7 +32,7 @@
           :class="getDayClass(day)"
           @click="selectDay(day);"
       >
-        {{ day?.day  || '' }}
+        {{ day?.day || '' }}
       </button>
     </div>
 
@@ -124,9 +124,8 @@ export default {
 
       this.selectedDate = new Date(this.currentYear, this.currentMonth, dayObj.day)
 
-      // console.log(this.selectedDate.toLocaleDateString("ro-RO"))
-
-      this.$emit('date-selected', this.selectedDate.toLocaleDateString("ro-RO"))
+      // this.$emit('date-selected', this.selectedDate.toLocaleDateString("ro-RO"))
+      this.$emit('date-selected', this.selectedDate) ////////////
     },
     getDayClass(dayObj) {
       if (!dayObj || !dayObj.day) {

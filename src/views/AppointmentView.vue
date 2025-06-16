@@ -9,27 +9,29 @@
       <calendar-panel
           class="w-1/2 border-r border-black/40 pr-[90px] py-[57.5px] z-10"
           @date-selected="handledDateSelected"
-      ></calendar-panel>
+      />
 
       <div class="w-1/2 relative">
-        <transition name="fade-slide" mode="out-in">
+        <transition :name="showForm ? 'slide-left' : 'slide-right'" mode="out-in">
           <appointment-time
               v-if="!showForm"
               key="time"
               class="absolute top-0 left-0 w-full h-full py-[57.5px]"
               @next-step="showForm = true"
+              :selected-index="selectedTimeIndex"
               @time-selected="onTimeSelected"
               :selected-date="selectedDate"
           />
         </transition>
 
-        <transition name="fade-slide" mode="out-in">
+        <transition :name="showForm ? 'slide-left' : 'slide-right'" mode="out-in">
           <appointment-form
               v-if="showForm"
               key="form"
               class="absolute top-0 left-0 w-full h-full py-[57.5px]"
               :selected-time="selectedTime"
               :selected-date="selectedDate"
+              @goBack="showForm = false"
           />
         </transition>
       </div>
@@ -37,28 +39,29 @@
   </div>
 </template>
 
-
-
 <script>
 import CalendarPanel from "@/components/CalendarPanel.vue";
-import AppointmentSection from "@/components/AppointmentSection.vue";
-import arrow from "@/assets/arrowCalendar.svg"
 import AppointmentTime from "@/components/AppointmentTime.vue";
 import AppointmentForm from "@/components/AppointmentForm.vue";
+import arrow from "@/assets/arrowCalendar.svg";
+
 export default {
-  components: { AppointmentForm, AppointmentTime, AppointmentSection, CalendarPanel },
+  name: "AppointmentView",
+  components: { AppointmentForm, AppointmentTime, CalendarPanel },
   data() {
     return {
       arrow,
       backText: 'Inapoi',
       showForm: false,
       selectedTime: null,
-      selectedDate: null
+      selectedDate: null,
+      selectedTimeIndex: null,
     }
   },
   methods: {
-    onTimeSelected(time) {
+    onTimeSelected({ time, index }) {
       this.selectedTime = time;
+      this.selectedTimeIndex = index;
     },
     handledDateSelected(date) {
       this.selectedDate = date;
@@ -74,7 +77,7 @@ export default {
 .slide-right-leave-active {
   transition: all 0.5s ease;
   position: absolute;
-  top: 0;
+  width: 100%;
   height: 100%;
 }
 

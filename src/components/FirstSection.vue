@@ -2,8 +2,8 @@
   <div>
     <hero-section :video-src="background">
       <template #content>
-        <the-header class="mt-[16px]"></the-header>
-        <div class="pt-[45px] flex flex-col gap-[40px]">
+        <the-header class="mt-[16px]"></the-header> <!-- mt-[16px] -->
+        <div class="pt-[45px] flex flex-col gap-[40px]"> <!-- pt-[45px] flex flex-col gap-[40px] -->
           <form-container></form-container>
           <next-section-button
               class="w-max self-center"

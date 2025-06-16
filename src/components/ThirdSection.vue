@@ -19,7 +19,7 @@
                   v-for="(card, index) in miniCards"
                   :key="index"
                   :title="card.title"
-                  :amount="card.amount + '+'"
+                  :amount="card.amount"
                   class="py-[80px] px-[25px]"
               >
               </why-mini-card>

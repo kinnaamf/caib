@@ -1,5 +1,5 @@
 <template>
-  <section class="relative h-screen overflow-hidden flex flex-col justify-center
+  <section class="relative min-h-screen overflow-hidden flex flex-col justify-center
   2xl:px-[260px]
 
 ">

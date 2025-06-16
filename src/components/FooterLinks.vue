@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="font-bold flex gap-8 text-2xl">
+    <ul class="font-normal flex gap-8 text-2xl">
       <li>
         <router-link to="">Despre noi</router-link>
       </li>
@@ -11,7 +11,7 @@
         <router-link to="">Blog</router-link>
       </li>
       <li class="text-brandOrange">
-        <router-link to="">Programare</router-link>
+        <router-link to="/programare">Programare</router-link>
       </li>
     </ul>
   </div>
