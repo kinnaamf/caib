@@ -45,6 +45,7 @@ export default {
   data() {
     return {
       title: 'Alege ora!',
+
       appointmentTime: [
         { from: '9:00', to: '11:00' },
         { from: '12:00', to: '14:00' },
@@ -52,9 +53,11 @@ export default {
         { from: '17:00', to: '19:00' }
       ],
       selectedInternalIndex: null,
+
       buttonText: 'Continuă',
-      errorMessage: '',
+
       showToast: false,
+      errorMessage: '',
     }
   },
   computed: {

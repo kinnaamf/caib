@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import HomeView from "@/views/HomeView.vue";
 import AppointmentView from "@/views/AppointmentView.vue";
+import TestView from "@/views/TestView.vue";
 
 const routes = [
   {
@@ -18,6 +19,14 @@ const routes = [
     component: AppointmentView,
     meta: {
       title: 'CAIB | Programare'
+    }
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: TestView,
+    meta: {
+      title: 'CAIB | Test'
     }
   }
 ]

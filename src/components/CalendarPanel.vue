@@ -68,11 +68,15 @@ export default {
       currentMonth: today.getMonth(),
       currentYear: today.getFullYear(),
       selectedDate: null,
+      availabilityByDay: {
+
+      },
       availability: {
-        4: 'partial',
-        10: 'full',
-        6: 'free',
-        1: 'full'
+        // 4: 'partial',
+        // 10: 'full',
+        // 6: 'free',
+        // 1: 'full',
+        30: 'full',
       },
       arrow
     }
@@ -126,7 +130,11 @@ export default {
 
       // this.$emit('date-selected', this.selectedDate.toLocaleDateString("ro-RO"))
       this.$emit('date-selected', this.selectedDate) ////////////
-    },
+    },        4: 'partial',
+        10: 'full',
+        6: 'free',
+        1: 'full',
+        30: 'full',
     getDayClass(dayObj) {
       if (!dayObj || !dayObj.day) {
         return 'border-none hover:bg-transparent pointer-events-none';
@@ -154,7 +162,7 @@ export default {
         'cursor-pointer hover:opacity-80': !this.isPast(dayObj),
         'pointer-events-none opacity-40': isWeekend && !this.isPast(dayObj)
       };
-    }
+    },
 
   }
 }
