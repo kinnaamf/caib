@@ -164,13 +164,9 @@ export default {
       if (weekday === 0 || weekday === 6) return;
 
       this.selectedDate = date;
-      const selectedDateString = date.toLocaleDateString("sv-SE"); // YYYY-MM-DD
-      const found = this.sendDateCount.find(entry => entry.date === selectedDateString);
-      const occupiedTimes = found ? found.time : [];
+      const selectedDateString = date.toLocaleDateString("sv-SE");
 
-      this.$emit("date-selected", {
-        date,
-      });
+      this.$emit("date-selected", { date });
     },
     getDayClass(dayObj) {
       if (!dayObj || !dayObj.day) {

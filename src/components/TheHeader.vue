@@ -13,7 +13,7 @@
         >
           <!-- Burger menu -->
           <svg
-              :class="[openMenu ? 'hidden' : 'visible']"
+              :class="[openMenu ? 'visible' : 'visible']"
               width="80"
               height="15"
               viewBox="0 0 57 15"
@@ -36,7 +36,7 @@
           <button
               @click="openMenu = false"
               aria-label="Close menu"
-              class="self-end p-2 rounded transition hover:rotate-90"
+              class="self-end p-2 rounded transition hover:rotate-90 hover:transition-all hover:duration-300 duration-300 "
           >
             <svg width="58" height="45" viewBox="0 0 58 45" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="12" y="1" width="57" height="4" transform="rotate(45 11.9647 1)" fill="#F66418" />
@@ -81,8 +81,8 @@ const openMenu = ref(false)
 const menuItems = [
   { text: 'Acasa', to: '/', icon: Home },
   { text: 'Blog', to: '/', icon: BookText },
-  { text: 'Contacte', to: '/', icon: Phone },
-  { text: 'Despre Noi', to: '/', icon: Info }
+  { text: 'Despre Noi', to: '/', icon: Info },
+  { text: 'Contacte', to: '/', icon: Phone }
 ]
 </script>
 

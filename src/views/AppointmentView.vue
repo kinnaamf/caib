@@ -29,7 +29,6 @@
               @time-selected="onTimeSelected"
               :selected-date="selectedDate"
               :selected-index="selectedTimeIndex"
-              :occupied-times="occupiedTimes"
           />
         </transition>
 
@@ -70,11 +69,10 @@ export default {
       isLoading: true,
       showForm: false,
 
-      selectedDate: {},
-      selectedTime: {},
-      selectedTimeIndex: {},
+      selectedDate: null,
+      selectedTime: null,
+      selectedTimeIndex: null,
       sendDateCount: [],
-      occupiedTimes: [],
     };
   },
   methods: {
@@ -84,6 +82,7 @@ export default {
         const data = await fetchAppointmentsCount();
         this.sendDateCount = data.map(item => ({
           date: item.date,
+          time: item.time,
           count: item.count,
         }));
       } catch (error) {
@@ -100,8 +99,7 @@ export default {
       }
 
       this.selectedDate = dateObj;
-      this.selectedTimeIndex = null;
-      this.selectedTime = null;
+
       this.showForm = false;
     },
     onTimeSelected({ time, index }) {

@@ -15,9 +15,7 @@
             class="btn"
             :class="[
             selectedInternalIndex === idx ? 'selected-button' : 'not-selected-button',
-            isOccupied(`${appointment.from}-${appointment.to}`) ? 'disabled-button' : ''
           ]"
-            :disabled="isOccupied(`${appointment.from}-${appointment.to}`)"
             @click="selectTime(idx)"
         >
           <p>
@@ -46,10 +44,7 @@ export default {
     selectedDate: Date,
     selectedIndex: Number,
     selectedTimes: Array,
-    occupiedTimes: {
-      type: Array,
-      default: () => []
-    },
+    onTimeSelected: null,
   },
   data() {
     return {
@@ -84,8 +79,6 @@ export default {
   methods: {
     selectTime(idx) {
       const timeString = `${this.appointmentTime[idx].from}-${this.appointmentTime[idx].to}`;
-      if (this.isOccupied(timeString)) return;
-
       this.selectedInternalIndex = idx;
       this.$emit('time-selected', { time: this.appointmentTime[idx], index: idx });
     },
@@ -98,11 +91,7 @@ export default {
         this.$emit('next-step');
       }
     },
-    isOccupied(timeString) {
-      return this.selectedTimes?.some(
-          time => time.replace(/\s+/g, '') === timeString.replace(/\s+/g, '')
-      );
-    }
+
   }
 };
 </script>
