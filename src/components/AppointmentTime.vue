@@ -13,7 +13,11 @@
       <div v-for="(appointment, idx) in appointmentTime" :key="idx" class="buttons">
         <button
             class="btn"
-            :class="selectedInternalIndex === idx ? 'selected-button' : 'not-selected-button'"
+            :class="[
+            selectedInternalIndex === idx ? 'selected-button' : 'not-selected-button',
+            isOccupied(`${appointment.from}-${appointment.to}`) ? 'disabled-button' : ''
+          ]"
+            :disabled="isOccupied(`${appointment.from}-${appointment.to}`)"
             @click="selectTime(idx)"
         >
           <p>
@@ -41,11 +45,15 @@ export default {
   props: {
     selectedDate: Date,
     selectedIndex: Number,
+    selectedTimes: Array,
+    occupiedTimes: {
+      type: Array,
+      default: () => []
+    },
   },
   data() {
     return {
       title: 'Alege ora!',
-
       appointmentTime: [
         { from: '9:00', to: '11:00' },
         { from: '12:00', to: '14:00' },
@@ -53,12 +61,10 @@ export default {
         { from: '17:00', to: '19:00' }
       ],
       selectedInternalIndex: null,
-
       buttonText: 'Continuă',
-
       showToast: false,
       errorMessage: '',
-    }
+    };
   },
   computed: {
     isSelected() {
@@ -77,6 +83,9 @@ export default {
   },
   methods: {
     selectTime(idx) {
+      const timeString = `${this.appointmentTime[idx].from}-${this.appointmentTime[idx].to}`;
+      if (this.isOccupied(timeString)) return;
+
       this.selectedInternalIndex = idx;
       this.$emit('time-selected', { time: this.appointmentTime[idx], index: idx });
     },
@@ -88,11 +97,15 @@ export default {
       } else {
         this.$emit('next-step');
       }
+    },
+    isOccupied(timeString) {
+      return this.selectedTimes?.some(
+          time => time.replace(/\s+/g, '') === timeString.replace(/\s+/g, '')
+      );
     }
   }
-}
+};
 </script>
-
 
 <style scoped>
 .container {
@@ -124,5 +137,8 @@ export default {
 }
 .not-selected {
   @apply bg-brandOrange/40 hover:bg-brandOrange/50;
+}
+.disabled-button {
+  @apply opacity-50 cursor-not-allowed pointer-events-none;
 }
 </style>

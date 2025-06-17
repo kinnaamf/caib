@@ -25,6 +25,8 @@
 
 
 <script>
+import { fetchAppointments } from "@/api/fetchAppointments.js";
+
 export default {
   data() {
     return {
@@ -33,33 +35,8 @@ export default {
   },
   methods: {
     async getData() {
-      try {
-        const apiUrl = process.env.VUE_APP_API_URL
-
-        const response = await fetch(`${apiUrl}/appointments`)
-
-        if (!response.ok) {
-          throw new Error(`Connection error: ${response.status}`)
-        }
-
-        const data = await response.json()
-
-        console.log('От сервера пришло:', data)
-
-        const needed = data.map(item => ({
-          id: item.id,
-          name: item.name,
-          date: item.date,
-          time: item.time
-        }))
-
-        this.serverData = needed
-
-      } catch (error) {
-        console.error('Ошибка при получении данных:', error)
-      }
+      this.serverData = await fetchAppointments();
     }
-
   }
 }
 </script>

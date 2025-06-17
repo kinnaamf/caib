@@ -153,9 +153,7 @@ export default {
 
       const dataToSend = {
         ...this.form,
-        // appointmentDate: this.selectedDate,
         date: this.selectedDate,
-        // appointmentTime: `${this.selectedTime.from} - ${this.selectedTime.to}`
         time: `${ this.selectedTime.from } - ${ this.selectedTime.to }`
       }
 
@@ -163,7 +161,6 @@ export default {
         const apiUrl = process.env.VUE_APP_API_URL
 
         const response = await fetch(`${ apiUrl }/appointments`, {
-        // const response = await fetch('192.168.1.100/appointments', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -174,10 +171,12 @@ export default {
 
         if (!response.ok) {
           const errorData = await response.json()
+          console.log(errorData)
           this.showErrorToast([errorData.message || 'Eroare la trimiterea formularului'])
           return
         }
 
+        // this.showSuccessToast('Formularul a fost transmis cu succes!', location.reload())
         this.showSuccessToast('Formularul a fost transmis cu succes!')
         this.form = { name: '', email: '', phone: '' }
         console.log('✅ Data sent:', dataToSend)

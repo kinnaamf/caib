@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#EEE] w-screen min-h-screen relative background flex items-center justify-center">
+  <div class=" w-screen min-h-screen relative background flex items-center justify-center">
     <the-ellipse size="320px" class="absolute bottom-[30px] left-[30px] -z-10"/>
     <the-ellipse size="450px" class="absolute top-[40px] -right-[60px] -z-10"/>
 

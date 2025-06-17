@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from "@/views/HomeView.vue";
 import AppointmentView from "@/views/AppointmentView.vue";
 import TestView from "@/views/TestView.vue";
+import PostTestView from "@/views/PostTestView.vue";
 
 const routes = [
   {
@@ -27,6 +28,14 @@ const routes = [
     component: TestView,
     meta: {
       title: 'CAIB | Test'
+    }
+  },
+  {
+    path: '/post-test',
+    name: 'post-test',
+    component: PostTestView,
+    meta: {
+      title: 'CAIB | Post'
     }
   }
 ]
