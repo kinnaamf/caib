@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --color-blue-bg: #1B1B3A;
+    --color-blue-text: #0A2342;
+    --color-blue-lighter: #2B6CB0;
+    --color-blue-darker: #0A2342;
+
+    --color-gray-light: #E5E7EB;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Host Grotesk', sans-serif;
+}
+
+.brand-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.btn {
+    @apply px-8 py-2 text-2xl font-bold;
+}
+
+.button-primary {
+    @apply rounded-sm px-8 py-2 text-2xl font-bold bg-gray-light text-blue-lighter
+    hover:bg-blue-lighter hover:text-gray-light transition-all;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.12) inset;
+}
+
+.button-secondary {
+    @apply rounded-2xl text-white bg-blue-lighter border-2 border-blue-lighter;
+}
+
+.button-tertiary {
+    @apply rounded-2xl bg-gray-light border-2 text-blue-lighter border-blue-lighter/85 w-[200px];
+}
+
+.button-secondary, .button-tertiary {
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25);
+}
