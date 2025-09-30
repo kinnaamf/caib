@@ -4,3 +4,4 @@ export default interface StatsData {
   statsTitle: string;
   statsDescription: string;
 }
+

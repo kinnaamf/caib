@@ -19,7 +19,7 @@ const props = defineProps<{
           <div class="stats-title"><span class="text-blue-lighter font-semibold underline text-[1.75rem]">{{ stat.statsTitle }}</span></div>
         </div>
 
-        <div class="ellipse w-[30rem] h-[30rem] absolute top-0"></div>
+        <div class="ellipse w-[30rem] h-[30rem] absolute top-0 -z-10"></div>
 
         <div class="stats-description"><span class="text-blue-bg text-[1.25rem] font-medium">{{ stat.statsDescription }}</span></div>
       </div>

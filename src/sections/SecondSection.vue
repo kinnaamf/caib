@@ -8,9 +8,11 @@ import ServicesGrid from "@/components/ServicesGrid.vue";
 <template>
   <section class="second-section bg-blue-bg pt-12 pb-32">
     <div class="section-title flex flex-col justify-center items-center gap-4">
+
       <div class="horizontal-divider w-2/3"></div>
       <h2 class="title brand-serif text-white text-[2.5rem] font-bold">Cu ce te putem ajuta?</h2>
       <div class="horizontal-divider w-2/3"></div>
+      
     </div>
     <ServicesGrid :services="servicesData" class="px-[21.875rem] mt-10"/>
   </section>
@@ -20,5 +22,9 @@ import ServicesGrid from "@/components/ServicesGrid.vue";
 .horizontal-divider {
   height: 1px;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.00) 0%, rgba(255, 255, 255, 0.30) 49.52%, rgba(102, 102, 102, 0.00) 100%);
+}
+
+.second-section {
+  filter: drop-shadow(0 10px 20px rgba(27, 27, 58, 0.50)) drop-shadow(0 -9px 60px rgba(27, 27, 58, 0.50));
 }
 </style>
