@@ -1,21 +1,24 @@
 <script setup lang="ts">
 
-import AppLogo from "@/icons/AppLogo.vue";
 import AppNavbar from "@/components/AppNavbar.vue";
+import AppLogoDark from "@/icons/AppLogoDark.vue";
 </script>
 
 <template>
   <header
-      class="mt-8 rounded-2xl mx-[280px] header bg-blue-bg text-[24px] flex justify-between items-center font-bold text-white px-[16.875rem] py-3">
+      id="app-header"
+      class="app-header px-40 py-6 flex justify-between items-center"
+  >
     <RouterLink to="/">
-      <AppLogo/>
+      <AppLogoDark/>
     </RouterLink>
     <AppNavbar/>
   </header>
 </template>
 
 <style scoped lang="postcss">
-.header {
-  background-color: var(--color-blue-bg);
+.app-header {
+  background: #E5E7EB;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
 }
 </style>

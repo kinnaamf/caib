@@ -24,10 +24,11 @@
 }
 
 .button-primary {
-    @apply rounded-sm px-8 py-2 text-2xl font-bold bg-gray-light text-blue-lighter
-    hover:bg-blue-lighter hover:text-gray-light transition-all;
+    border-radius: 4px;
     border: 1px solid rgba(0, 0, 0, 0.20);
-    box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.12) inset;
+    background: #E5E7EB;
+    color: var(--color-blue-lighter);
+    @apply hover:bg-blue-lighter hover:text-gray-light transition-all;
 }
 
 .button-secondary {

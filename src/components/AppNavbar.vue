@@ -4,19 +4,21 @@ import AppButton from "@/components/AppButton.vue";
 </script>
 
 <template>
-  <nav class="flex gap-6 items-center">
-    <ul class="flex gap-10">
+  <nav
+      id="app-navbar"
+      class="app-navbar">
+    <ul class="flex gap-10 text-2xl font-bold text-blue-bg/70 items-center">
       <li>
-        <RouterLink class="" to="/">Servicii</RouterLink>
+        <RouterLink to="">Servicii</RouterLink>
       </li>
       <li>
-        <RouterLink to="/">De ce noi</RouterLink>
+        <RouterLink to="">De ce noi</RouterLink>
       </li>
       <li>
-        <RouterLink to="/">Blog</RouterLink>
+        <RouterLink to="">Blog</RouterLink>
       </li>
+      <AppButton>Programare</AppButton>
     </ul>
-    <AppButton variant="primary">Programare</AppButton>
   </nav>
 </template>
 
